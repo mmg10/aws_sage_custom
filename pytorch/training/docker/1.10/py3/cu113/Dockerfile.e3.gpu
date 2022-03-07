@@ -184,7 +184,9 @@ RUN pip install --no-cache-dir -U \
  && pip uninstall -y torch \
  && pip install --no-cache-dir -U ${PT_TRAINING_URL} \
  && pip uninstall -y torchvision \
- && pip install --no-deps --no-cache-dir -U ${PT_TORCHVISION_URL}
+ && pip install --no-deps --no-cache-dir -U ${PT_TORCHVISION_URL} \
+ && pip install --no-cache-dir -U torchaudio==0.10.2+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html \
+ && pip install --no-cache-dir -U pytorch-lightning torchmetrics torchsummary
 
 # Install Nvidia Apex
 ## Pin apex commit requested by sm-model-parallel team
